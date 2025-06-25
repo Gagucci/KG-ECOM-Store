@@ -71,7 +71,6 @@ public class CategoriesController
     @PreAuthorize("hasRole('ADMIN')")
     public Category addCategory(@RequestBody Category category)
     {
-        // insert the category
         try
         {
             return categoryDao.create(category);
@@ -82,18 +81,31 @@ public class CategoriesController
         }
     }
 
-    // add annotation to call this method for a PUT (update) action - the url path must include the categoryId
-    // add annotation to ensure that only an ADMIN can call this function
+    @PutMapping("/{categoryId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void updateCategory(@PathVariable int id, @RequestBody Category category)
     {
-        // update the category by id
+        try
+        {
+            categoryDao.update(id, category);
+        }
+        catch(Exception e)
+        {
+            throw new RuntimeException("Error updating category with id: " + id, e);
+        }
     }
 
-
-    // add annotation to call this method for a DELETE action - the url path must include the categoryId
-    // add annotation to ensure that only an ADMIN can call this function
+    @DeleteMapping("/{categoryId}")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteCategory(@PathVariable int id)
     {
-        // delete the category by id
+        try
+        {
+            categoryDao.delete(id);
+        }
+        catch(Exception e)
+        {
+            throw new RuntimeException("Error deleting category with id: " + id, e);
+        }
     }
 }
