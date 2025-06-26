@@ -1,7 +1,6 @@
 package org.yearup.models;
 
-public class Profile
-{
+public class Profile {
     private int userId;
     private String firstName = "";
     private String lastName = "";

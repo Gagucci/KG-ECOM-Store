@@ -21,8 +21,7 @@ import java.security.Principal;
 @RequestMapping("/cart") // add the @RequestMapping annotation to set the base URL for this controller
 @CrossOrigin // add the @CrossOrigin annotation to allow cross-origin requests
 @PreAuthorize("isAuthenticated()") // add the @PreAuthorize annotation to restrict access to logged in users
-public class ShoppingCartController
-{
+public class ShoppingCartController {
     // a shopping cart requires
     private ShoppingCartDao shoppingCartDao;
     private UserDao userDao;
