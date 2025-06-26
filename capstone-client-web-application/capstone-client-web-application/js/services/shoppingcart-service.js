@@ -90,7 +90,7 @@ class ShoppingCartService {
         contentDiv.appendChild(cartHeader)
         main.appendChild(contentDiv);
 
-        // let parent = document.getElementById("cart-item-list");
+        //let parent = document.getElementById("cart-item-list");
         this.cart.items.forEach(item => {
             this.buildItem(item, contentDiv)
         });
@@ -145,11 +145,11 @@ class ShoppingCartService {
                      total: 0
                  }
 
-                 this.cart.total = response.data.total;
+                //  this.cart.total = response.data.total;
 
-                 for (const [key, value] of Object.entries(response.data.items)) {
-                     this.cart.items.push(value);
-                 }
+                //  for (const [key, value] of Object.entries(response.data.items)) {
+                //      this.cart.items.push(value);
+                //  }
 
                  this.updateCartDisplay()
                  this.loadCartPage()

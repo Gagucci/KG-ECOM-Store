@@ -118,7 +118,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
     }
 
     @Override
-    public void emptyCart(int userId) {
+    public void clearCart(int userId) {
         String sql = "DELETE FROM shopping_cart WHERE user_id = ?";
 
         try (var connection = getConnection();

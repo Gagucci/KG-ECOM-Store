@@ -12,6 +12,8 @@ import org.yearup.models.ShoppingCart;
 import org.yearup.models.ShoppingCartItem;
 import org.yearup.models.User;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.security.Principal;
 
 
@@ -89,21 +91,22 @@ public class ShoppingCartController
         }
     }
 
+    @DeleteMapping
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void clearCart(Principal principal) {
+        try {
+            String username = principal.getName();
+            User user = userDao.getByUserName(username);
 
-    // add a DELETE method to clear all products from the current users cart
-    // https://localhost:8080/cart
-    @DeleteMapping("")
-    public void emptyCart(Principal principal) {
-        try
-        {
-            String userName = principal.getName();
-            User currentUser = userDao.getByUserName(userName);
-            shoppingCartDao.emptyCart(currentUser.getId());
-        }
-        catch(Exception e)
-        {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            if (user == null) {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found.");
+            }
+
+            shoppingCartDao.clearCart(user.getId());
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to clear shopping cart: " + e.getMessage());
         }
     }
-
 }
+

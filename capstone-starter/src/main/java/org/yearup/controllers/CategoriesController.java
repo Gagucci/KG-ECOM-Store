@@ -60,6 +60,7 @@ public class CategoriesController {
 
     @PostMapping("")
     @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.CREATED)
     public Category addCategory(@RequestBody Category category) {
         try {
             return categoryDao.create(category);
@@ -69,6 +70,7 @@ public class CategoriesController {
 
     @PutMapping("/{categoryId}")
     @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.ACCEPTED)
     public void updateCategory(@PathVariable int id, @RequestBody Category category) {
         try {
             categoryDao.update(id, category);
@@ -78,6 +80,7 @@ public class CategoriesController {
 
     @DeleteMapping("/{categoryId}")
     @PreAuthorize("hasRole('ADMIN')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteCategory(@PathVariable int id) {
         try {
             categoryDao.delete(id);
