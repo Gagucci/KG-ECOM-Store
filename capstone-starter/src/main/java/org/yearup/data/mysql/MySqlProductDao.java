@@ -11,16 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class MySqlProductDao extends MySqlDaoBase implements ProductDao
-{
+public class MySqlProductDao extends MySqlDaoBase implements ProductDao {
     public MySqlProductDao(DataSource dataSource)
     {
         super(dataSource);
     }
 
     @Override
-    public List<Product> search(Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String color)
-    {
+    public List<Product> search(Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String color) {
         List<Product> products = new ArrayList<>();
 
 
@@ -70,8 +68,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
     @Override
-    public List<Product> listByCategoryId(int categoryId)
-    {
+    public List<Product> listByCategoryId(int categoryId) {
         List<Product> products = new ArrayList<>();
 
         String sql = "SELECT * FROM products " +
@@ -100,8 +97,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
 
 
     @Override
-    public Product getById(int productId)
-    {
+    public Product getById(int productId) {
         String sql = "SELECT * FROM products WHERE product_id = ?";
         try (Connection connection = getConnection())
         {
@@ -123,8 +119,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
     @Override
-    public Product create(Product product)
-    {
+    public Product create(Product product) {
 
         String sql = "INSERT INTO products(name, price, category_id, description, color, image_url, stock, featured) " +
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
@@ -164,8 +159,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
     @Override
-    public void update(int productId, Product product)
-    {
+    public void update(int productId, Product product) {
         String sql = "UPDATE products" +
                 " SET name = ? " +
                 "   , price = ? " +
@@ -199,8 +193,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
     }
 
     @Override
-    public void delete(int productId)
-    {
+    public void delete(int productId) {
 
         String sql = "DELETE FROM products " +
                 " WHERE product_id = ?;";
@@ -218,8 +211,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
     }
 
-    protected static Product mapRow(ResultSet row) throws SQLException
-    {
+    protected static Product mapRow(ResultSet row) throws SQLException {
         int productId = row.getInt("product_id");
         String name = row.getString("name");
         BigDecimal price = row.getBigDecimal("price");

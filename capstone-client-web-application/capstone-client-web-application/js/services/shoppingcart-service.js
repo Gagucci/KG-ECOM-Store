@@ -10,9 +10,9 @@ class ShoppingCartService {
     addToCart(productId)
     {
         const url = `${config.baseUrl}/cart/products/${productId}`;
-        // const headers = userService.getHeaders();
+        const headers = userService.getHeaders();
 
-        axios.post(url, {})// ,{headers})
+        axios.post(url, {}, {headers})
             .then(response => {
                 this.setCart(response.data)
 
@@ -43,32 +43,24 @@ class ShoppingCartService {
         }
     }
 
-    loadCart()
-    {
+    loadCart() {
+    const url = `${config.baseUrl}/cart`;
+    const headers = userService.getHeaders();
 
-        const url = `${config.baseUrl}/cart`;
-
-        axios.get(url)
-            .then(response => {
-                this.setCart(response.data)
-
-                this.updateCartDisplay()
-
-            })
-            .catch(error => {
-
-                const data = {
-                    error: "Load cart failed."
-                };
-
-                templateBuilder.append("error", data, "errors")
-            })
-
-    }
+    axios.get(url, { headers })
+        .then(response => {
+            this.setCart(response.data);
+            this.updateCartDisplay();
+        })
+        .catch(error => {
+            const data = { error: "Load cart failed." };
+            templateBuilder.append("error", data, "errors");
+        });
+}
 
     loadCartPage()
     {
-        // templateBuilder.build("cart", this.cart, "main");
+        //templateBuilder.build("cart", this.cart, "main");
 
         const main = document.getElementById("main")
         main.innerHTML = "";
