@@ -9,6 +9,7 @@ import org.yearup.data.ProductDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.data.UserDao;
 import org.yearup.models.ShoppingCart;
+import org.yearup.models.ShoppingCartItem;
 import org.yearup.models.User;
 
 import java.security.Principal;
@@ -57,7 +58,6 @@ public class ShoppingCartController
     public ShoppingCart addProductToCart(@PathVariable int productId, Principal principal) {
         try
         {
-            // get the currently logged in username
             String userName = principal.getName();
             User currentUser = userDao.getByUserName(userName);
             shoppingCartDao.addToCart(currentUser.getId(), productId, 1);
@@ -77,7 +77,6 @@ public class ShoppingCartController
     public ShoppingCart updateProductInCart(@PathVariable int productId, @RequestBody ShoppingCartItem item, Principal principal) {
         try
         {
-            // get the currently logged in username
             String userName = principal.getName();
             User currentUser = userDao.getByUserName(userName);
             shoppingCartDao.updateCart(currentUser.getId(), productId, item.getQuantity());
@@ -92,5 +91,18 @@ public class ShoppingCartController
 
     // add a DELETE method to clear all products from the current users cart
     // https://localhost:8080/cart
+    @DeleteMapping("")
+    public void emptyCart(Principal principal) {
+        try
+        {
+            String userName = principal.getName();
+            User currentUser = userDao.getByUserName(userName);
+            shoppingCartDao.emptyCart(currentUser.getId());
+        }
+        catch(Exception e)
+        {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+        }
+    }
 
 }
