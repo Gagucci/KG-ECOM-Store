@@ -40,61 +40,62 @@
 
 </div>
 
+<div align="center">
+
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Java 17+
-- Node.js 16+
-- MySQL 8+
-- Maven
 
-### Installation
+<p style="text-align: center; margin-left: 0; padding-left: 0">
+• <strong>IntelliJ</strong> IDEA (Community or Ultimate Edition)<br>
+• <strong>VSCode</strong> with Live Server extension<br>
+• <strong>Java 24</strong> JDK installed<br>
+• <strong>Maven</strong> 3.9+<br>
+• <strong>MySQL</strong> 8.0+
+</p>
 
-1. **Clone the repository**:
-```bash
-git clone https://github.com/Gagucci/KG-ECOM-Store.git
-cd KG-ECOM-Store
+## 🚀 Installation
+
+### **1.**
+<strong>Clone the repository</strong>:<br>
+<code>git clone https://github.com/Gagucci/KG-ECOM-Store.git</code><br>
+<code>cd KG-ECOM-Store</code>
+
+### **2.**
+<strong>Open "capstone-starter" in IntelliJ</strong>:<br>
+<code>Run application using IDE tools or via CLI<br><br></code>
+
+### **3.**
+<strong>Open "capstone-client-web-application" in VSCode</strong>:<br>
+<code>Launch with Live Server extension</code>
+
+
+</div>
+
+<div align="center">
+  
+## 📸 Application Screens
+
+</div>
+
+<img src="https://via.placeholder.com/300x200/6DB33F/FFFFFF?text=Home+Screen" width="30%">
+<img src="https://via.placeholder.com/300x200/4479A1/FFFFFF?text=Product+Page" width="30%">
+<img src="https://via.placeholder.com/300x200/563D7C/FFFFFF?text=Admin+Dashboard" width="30%">
+
+<div align="center">
+  
+## 🔍 Code Snippet
+
+```java
+// Sample from your ProductsController
+@GetMapping("/featured")
+public List<Product> getFeaturedProducts() {
+    return productDao.getFeaturedProducts();
+}
 ```
-2. **Open "capstone-starter" in Intellij**:
-```bash
-run application with CLI in IDE
-```
-3. **Open "capstone-client-web-application" in VSCode**:
-```bash
-open and view webpage in browser using live server
-```
-Security Features:
 
-🔒 Role-based authorization
+## 📜 License
 
-🛡️ Input validation
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-🔄 ID consistency
-
-📝 Audit logging
-
-📸 Application Screens
-Home Page	Product Details	Admin Dashboard
-https://i.imgur.com/J5ZQ2rT.png	https://i.imgur.com/8KQ1Y2x.png	https://i.imgur.com/L9p3nZl.png
-🌐 API Endpoints
-Method	Endpoint	Description	Auth Required
-GET	/products	List all products	No
-POST	/auth/login	User login	No
-PUT	/products/{id}	Update product	Admin
-GET	/categories/{id}/products	Products by category	No
-🤝 Contributing
-Fork the project
-
-Create your feature branch (git checkout -b feature/AmazingFeature)
-
-Commit your changes (git commit -m 'Add some amazing feature')
-
-Push to the branch (git push origin feature/AmazingFeature)
-
-Open a Pull Request
-
-📜 License
-Distributed under the MIT License.
-
-📧 Contact
-Project Link: https://github.com/Gagucci/KG-ECOM-Store
+</div>
