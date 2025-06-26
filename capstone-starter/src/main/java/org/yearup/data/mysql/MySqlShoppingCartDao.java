@@ -24,25 +24,25 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
         cart.setItems(new HashMap<>());
 
         String sql = """
-                SELECT
-                    sc.product_id,
-                    sc.quantity,
-                    p.product_id,
-                    p.name,
-                    p.price,
-                    p.category_id,
-                    p.description,
-                    p.color,
-                    p.stock,
-                    p.image_url,
-                    p.featured
-                FROM
-                    shopping_cart sc
-                JOIN
-                    products p ON sc.product_id = p.product_id
-                WHERE
-                    sc.user_id = ?
-                """;
+            SELECT
+                sc.product_id,
+                sc.quantity,
+                p.product_id as productId,
+                p.name,
+                p.price,
+                p.category_id as categoryId,
+                p.description,
+                p.color,
+                p.stock,
+                p.image_url as imageUrl,
+                p.featured
+            FROM
+                shopping_cart sc
+            JOIN
+                products p ON sc.product_id = p.product_id
+            WHERE
+                sc.user_id = ?
+            """;
 
         try (var connection = getConnection();
              var ps = connection.prepareStatement(sql)) {
@@ -77,10 +77,16 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
     @Override
     public void addToCart(int userId, int productId, int quantity) {
         String sql = """
-                INSERT INTO shopping_cart (user_id, product_id, quantity)
-                        VALUES (?, ?, ?)
-                        ON DUPLICATE KEY UPDATE
-                            quantity = quantity + VALUES(quantity);
+                MERGE INTO shopping_cart AS target
+                    USING (SELECT CAST(? AS INT) AS user_id,
+                                  CAST(? AS INT) AS product_id,
+                                  CAST(? AS INT) AS quantity) AS source
+                    ON target.user_id = source.user_id AND target.product_id = source.product_id
+                    WHEN MATCHED THEN
+                        UPDATE SET quantity = target.quantity + source.quantity
+                    WHEN NOT MATCHED THEN
+                        INSERT (user_id, product_id, quantity)
+                        VALUES (source.user_id, source.product_id, source.quantity);
                 """;
 
         try (var connection = getConnection();

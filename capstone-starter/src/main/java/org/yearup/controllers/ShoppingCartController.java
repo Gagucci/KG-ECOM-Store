@@ -36,18 +36,20 @@ public class ShoppingCartController
 
     // each method in this controller requires a Principal object as a parameter
     @GetMapping("")
-    public ShoppingCart getCart(Principal principal)
-    {
-        try
-        {
-            // get the currently logged in username
+    public ShoppingCart getCart(Principal principal) {
+        try {
             String userName = principal.getName();
             User currentUser = userDao.getByUserName(userName);
-            return shoppingCartDao.getByUserId(currentUser.getId());
-        }
-        catch(Exception e)
-        {
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
+            ShoppingCart cart = shoppingCartDao.getByUserId(currentUser.getId());
+
+            if (cart == null) {
+                cart = new ShoppingCart(); // Return empty cart if none exists
+            }
+            return cart;
+        } catch(Exception e) {
+            e.printStackTrace(); // Log the actual error
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Error retrieving shopping cart: " + e.getMessage());
         }
     }
 
