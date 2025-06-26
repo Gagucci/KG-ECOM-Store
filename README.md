@@ -1,29 +1,44 @@
-# 🛍️ KG E-Commerce Store
+<h1 align="center">🛍️ KG E-Commerce Store</h1>
 
-A full-stack e-commerce platform with Spring Boot backend and React frontend, featuring product management, user authentication, and secure checkout.
+<p align="center">A full-stack e-commerce platform with Spring Boot backend and React frontend,<br>featuring product management, user authentication, and secure checkout.</p>
 
-![App Screenshot](https://i.imgur.com/J5ZQ2rT.png)
+<div align="center">
 
 ## ✨ Features
 
-- **Product Catalog** with categories and advanced search
-- **JWT Authentication** (Customer/Admin roles)
-- **Shopping Cart** with persistent storage
-- **Admin Dashboard** for inventory management
-- **Responsive Design** with mobile-first approach
-- **RESTful API** with proper status codes
+<p style="text-align: center; margin-left: 0; padding-left: 0">
+• <strong>Product Catalog</strong> with categories and advanced search<br>
+• <strong>JWT Authentication</strong> (Customer/Admin roles)<br>
+• <strong>Shopping Cart</strong> with persistent storage<br>
+• <strong>Admin Dashboard</strong> for inventory management<br>
+• <strong>Responsive Design</strong> with mobile-first approach<br>
+• <strong>RESTful API</strong> with proper status codes
+</p>
+
+</div>
+
+<div align="center">
 
 ## 🛠️ Tech Stack
 
-**Frontend:**  
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)  
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)  
-![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
+### **Frontend**  
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)  
+[![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)](https://github.com/axios/axios)
+[![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)](https://jquery.com)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)  
+[![Mustache](https://img.shields.io/badge/Mustache-000000?style=for-the-badge&logo=mustache&logoColor=white)](https://github.com/janl/mustache.js)
 
-**Backend:**  
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)  
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)  
-![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)
+### **Backend**  
+[![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://java.com)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
+[![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)](https://www.json.org)  
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
+[![JDBC](https://img.shields.io/badge/JDBC-007396?style=for-the-badge&logo=java&logoColor=white)](https://docs.oracle.com/javase/tutorial/jdbc/)
+[![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)](https://jwt.io)
+
+</div>
 
 ## 🚀 Getting Started
 
@@ -36,53 +51,18 @@ A full-stack e-commerce platform with Spring Boot backend and React frontend, fe
 ### Installation
 
 1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Gagucci/KG-ECOM-Store.git
-   cd KG-ECOM-Store
-Set up database:
-
-bash
-mysql -u root -p < database/schema.sql
-Configure backend:
-
-bash
-cd backend
-cp src/main/resources/application.example.properties src/main/resources/application.properties
-# Edit the properties file with your DB credentials
-Run backend:
-
-bash
-./mvnw spring-boot:run
-Run frontend:
-
-bash
-cd ../frontend
-npm install
-npm start
-🔍 Code Spotlight: Secure Product Update
-java
-@RestController
-@RequestMapping("/products")
-public class ProductsController {
-    private final ProductDao productDao;
-    
-    @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public ResponseEntity<?> updateProduct(
-            @PathVariable int id,
-            @Valid @RequestBody Product product) {
-        
-        Product existing = productDao.getById(id);
-        if (existing == null) {
-            return ResponseEntity.notFound().build();
-        }
-
-        product.setProductId(id);
-        log.info("Admin updating product ID {}: {}", id, product);
-        Product updated = productDao.update(id, product);
-        return ResponseEntity.ok(updated);
-    }
-}
+```bash
+git clone https://github.com/Gagucci/KG-ECOM-Store.git
+cd KG-ECOM-Store
+```
+2. **Open "capstone-starter" in Intellij**:
+```bash
+run application with CLI in IDE
+```
+3. **Open "capstone-client-web-application" in VSCode**:
+```bash
+open and view webpage in browser using live server
+```
 Security Features:
 
 🔒 Role-based authorization
