@@ -16,6 +16,9 @@ import java.util.List;
 @RequestMapping("/categories")
 @CrossOrigin
 public class CategoriesController {
+
+    // Pass in the CategoryDao and ProductDao and add to autowired constructor
+    // to allow Spring to inject the dependencies needed to interact with the database
     private CategoryDao categoryDao;
     private ProductDao productDao;
 

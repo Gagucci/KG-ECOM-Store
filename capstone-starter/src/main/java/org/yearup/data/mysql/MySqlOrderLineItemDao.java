@@ -21,21 +21,28 @@ public class MySqlOrderLineItemDao extends MySqlDaoBase implements OrderLineItem
 
     @Override
     public OrderLineItem create(OrderLineItem item) {
+
+        // Insert a new order line item into the database
         String sql = "INSERT INTO order_line_items (order_id, product_id, sales_price, quantity, discount) " +
                 "VALUES (?, ?, ?, ?, ?)";
         try (var connection = getConnection();
              var ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
+            // Set the parameters for the prepared statement based on the order line item object
             ps.setInt(1, item.getOrderId());
             ps.setInt(2, item.getProductId());
             ps.setBigDecimal(3, item.getSalesPrice());
             ps.setInt(4, item.getQuantity());
             ps.setBigDecimal(5, item.getDiscount());
 
+            // Execute the update and retrieve the generated keys
             ps.executeUpdate();
 
+            // Retrieve the generated keys (order line item ID) after insertion
             try (var rs = ps.getGeneratedKeys()) {
+                // If a key was generated, retrieve it
                 if (rs.next()) {
+                    // Set the generated order line item ID back to the item object
                     item.setOrderLineItemId(rs.getInt(1));
                 }
             }

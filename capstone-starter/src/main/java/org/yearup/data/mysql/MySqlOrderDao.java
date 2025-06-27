@@ -22,12 +22,15 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
 
     @Override
     public Order create(Order order) {
+
+        // Query to inject a new order into the database
         String sql = "INSERT INTO orders (user_id, date, address, city, state, zip, shipping_amount) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (var connection = getConnection();
                 var ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
+                // Set the parameters for the prepared statement based on the order object
                 ps.setInt(1, order.getUserId());
                 ps.setObject(2, order.getDate() != null ? order.getDate() : LocalDateTime.now());
                 ps.setString(3, order.getAddress());
@@ -38,8 +41,11 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
 
                 ps.executeUpdate();
 
+                // Retrieve the generated keys (order ID) after insertion
                 try (var rs = ps.getGeneratedKeys()) {
+                    // If a key was generated, retrieve it
                     if (rs.next()) {
+                        // Set the generated order ID back to the order object
                         order.setOrderId(rs.getInt(1));
                     }
                 }
@@ -52,6 +58,8 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
 
     @Override
     public Order getById(int orderId) {
+
+        // Query to retrieve an order by its ID
         String sql = "SELECT * FROM orders WHERE order_id = ?";
         try (var connection = getConnection();
              var ps = connection.prepareStatement(sql)) {
@@ -70,6 +78,8 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
 
     @Override
     public List<Order> getByUserId(int userId) {
+
+        // Query to retrieve all orders for a specific user
         String sql = "SELECT * FROM orders WHERE user_id = ?";
         List<Order> orders = new ArrayList<>();
 
@@ -91,6 +101,8 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
 
     @Override
     public void update(Order order) {
+
+        // Query to update an existing order in the database
         String sql = "UPDATE orders SET " +
                 "user_id = ?, " +
                 "date = ?, " +
@@ -119,6 +131,7 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
         }
     }
 
+    // method to map a ResultSet row to an Order object
     private Order mapRowToOrder(ResultSet rs) throws SQLException {
         Order order = new Order();
         order.setOrderId(rs.getInt("order_id"));
@@ -137,6 +150,8 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
     }
 
     private List<OrderLineItem> getLineItemsForOrder(int orderId) {
+
+        // Query to retrieve line items for a specific order
         String sql = "SELECT * FROM order_line_items WHERE order_id = ?";
         List<OrderLineItem> lineItems = new ArrayList<>();
 
@@ -147,6 +162,7 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
 
             try (var rs = ps.executeQuery()) {
                 while (rs.next()) {
+                    // Map each row to an OrderLineItem object
                     OrderLineItem item = new OrderLineItem();
                     item.setOrderLineItemId(rs.getInt("order_line_item_id"));
                     item.setOrderId(rs.getInt("order_id"));
