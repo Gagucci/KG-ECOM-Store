@@ -10,7 +10,7 @@ A capstone project where we transformed an incomplete/buggy prebuilt system into
 
 <div align="center">
 <h2>
-Project Context:
+Project Context
 </h2>
 
 <strong>This project began with a prebuilt but incomplete Spring Boot backend containing:</strong>
