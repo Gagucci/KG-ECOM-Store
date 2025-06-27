@@ -6,29 +6,36 @@ import org.yearup.models.OrderLineItem;
 import java.util.List;
 
 public interface OrderDao {
-    /**
-     * Creates a new order line item in the database
-     * @param item the line item to create
-     * @return the created line item with generated ID
-     */
-    OrderLineItem create(OrderLineItem item);
 
     /**
-     * Gets all line items for a specific order
-     * @param orderId the ID of the order
-     * @return list of line items (empty list if none found)
+     * Creates a new order in the database
+     *
+     * @param order the order to create
+     * @return the created order with generated ID
      */
-    List<OrderLineItem> getByOrderId(int orderId);
+    Order create(Order order);
 
     /**
-     * Updates an existing order line item
-     * @param item the line item with updated information
+     * Gets an order by its ID
+     *
+     * @param orderId the ID of the order to find
+     * @return the order or null if not found
      */
-    void update(OrderLineItem item);
+    Order getById(int orderId);
 
     /**
-     * Deletes an order line item
-     * @param orderLineItemId the ID of the line item to delete
+     * Gets all orders for a specific user
+     *
+     * @param userId the ID of the user
+     * @return list of orders (empty list if none found)
      */
-    void delete(int orderLineItemId);
+    List<Order> getByUserId(int userId);
+
+    /**
+     * Updates an existing order
+     *
+     * @param order the order with updated information
+     */
+    void update(Order order);
 }
+
