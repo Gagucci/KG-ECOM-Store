@@ -1,5 +1,6 @@
 package org.yearup.data.mysql;
 
+import org.springframework.stereotype.Component;
 import org.yearup.data.OrderDao;
 import org.yearup.models.Order;
 import org.yearup.models.OrderLineItem;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
 
     public MySqlOrderDao(DataSource dataSource) {
