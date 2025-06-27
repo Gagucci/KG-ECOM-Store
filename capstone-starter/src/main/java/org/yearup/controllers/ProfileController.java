@@ -51,20 +51,23 @@ public class ProfileController {
         try {
             // Get current user's ID
             int userId = getCurrentUserId(principal);
+            // Set the userId as the profile being updated
             updatedProfile.setUserId(userId);
-
+            // Validate that the profile being updated belongs to the current user
             if (updatedProfile.getUserId() != userId) {
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not authorized to update this profile");
             }
 
-            // Update the profile
+            // Update the profile using the DAO method
             profileDao.update(userId, updatedProfile);
 
             // Return the updated profile
             return profileDao.getByUserId(userId);
         } catch (ResponseStatusException e) {
+            // error handling for specific exceptions
             throw new ResponseStatusException(e.getStatus(), "Error updating profile: " + e.getReason(), e);
         } catch (Exception e) {
+            // general error handling
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error updating profile", e);
         }
     }
