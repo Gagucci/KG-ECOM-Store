@@ -18,7 +18,7 @@ public class OrderLineItem {
         this.quantity = quantity;
         this.discount = discount;
     }
-    
+
     public int getOrderLineItemId() { return orderLineItemId; }
     public void setOrderLineItemId(int orderLineItemId) { this.orderLineItemId = orderLineItemId; }
 
