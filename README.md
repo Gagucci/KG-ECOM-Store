@@ -34,6 +34,16 @@ Project Context:
 </div>
 
 <div align="center">
+<h2>📸 Screenshots</h2>
+
+<img src="./images/webpage.png" width="70%">
+<img src="./images/cart.png" width="70%">
+<img src="./images/profile.png" width="50%">
+<img src="./images/postman.png" width="50%">
+
+</div>
+
+<div align="center">
 
 ## ✨ Key Features
 
@@ -50,8 +60,9 @@ Project Context:
 • Implemented missing cart/order APIs from scratch  
 • Secured authentication vulnerabilities  
 • Added proper input validation/error handling  
-
 </div>
+
+
 <div align="center">
 
 ## 🛠️ Tech Stack
@@ -74,6 +85,7 @@ Project Context:
 [![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)](https://jwt.io)
 
 </div>
+
 
 <div align="center">
 
@@ -107,15 +119,6 @@ Project Context:
 
 </div>
 
-<div align="center">
-  
-## 📸 Application Screens
-
-</div>
-
-<img src="https://via.placeholder.com/300x200/6DB33F/FFFFFF?text=Home+Screen" width="30%">
-<img src="https://via.placeholder.com/300x200/4479A1/FFFFFF?text=Product+Page" width="30%">
-<img src="https://via.placeholder.com/300x200/563D7C/FFFFFF?text=Admin+Dashboard" width="30%">
 
 <h2 align="center">  
 🔍 Code Snippet
