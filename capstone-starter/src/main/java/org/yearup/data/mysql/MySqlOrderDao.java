@@ -5,6 +5,8 @@ import org.yearup.models.Order;
 import org.yearup.models.OrderLineItem;
 
 import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -114,7 +116,7 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
         }
     }
 
-    private Order mapRowToOrder(java.sql.ResultSet rs) throws java.sql.SQLException {
+    private Order mapRowToOrder(ResultSet rs) throws SQLException {
         Order order = new Order();
         order.setOrderId(rs.getInt("order_id"));
         order.setUserId(rs.getInt("user_id"));
