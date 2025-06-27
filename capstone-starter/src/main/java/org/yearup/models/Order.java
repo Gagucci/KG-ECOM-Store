@@ -29,6 +29,10 @@ public class Order {
         this.lineItems = lineItems;
     }
 
+    public Order() {
+        // Default constructor
+    }
+
     public int getOrderId() {
         return orderId;
     }

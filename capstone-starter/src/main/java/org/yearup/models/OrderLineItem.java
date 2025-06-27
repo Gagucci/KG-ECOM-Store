@@ -19,6 +19,9 @@ public class OrderLineItem {
         this.discount = discount;
     }
 
+    public OrderLineItem() {
+    }
+
     public int getOrderLineItemId() { return orderLineItemId; }
     public void setOrderLineItemId(int orderLineItemId) { this.orderLineItemId = orderLineItemId; }
 
