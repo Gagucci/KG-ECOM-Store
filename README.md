@@ -117,19 +117,67 @@ Project Context:
 <img src="https://via.placeholder.com/300x200/4479A1/FFFFFF?text=Product+Page" width="30%">
 <img src="https://via.placeholder.com/300x200/563D7C/FFFFFF?text=Admin+Dashboard" width="30%">
 
-<div align="center">
-  
-## 🔍 Code Snippet
+<h2 align="center">  
+🔍 Code Snippet
+</h2>
 
 ```java
-// Sample from your ProductsController
-@GetMapping("/featured")
-public List<Product> getFeaturedProducts() {
-    return productDao.getFeaturedProducts();
-}
-```
+ @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Order checkout(Principal principal) {
+        try {
+            // 1. Get user and profile
+            User user = userDao.getByUserName(principal.getName());
+            Profile profile = profileDao.getByUserId(user.getId());
 
-## 📜 License
+            // 2. Get shopping cart
+            ShoppingCart cart = shoppingCartDao.getByUserId(user.getId());
+            if (cart == null || cart.getItems().isEmpty()) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Shopping cart is empty");
+            }
+
+            // 3. Create order from cart and profile
+            Order order = new Order();
+            order.setUserId(user.getId());
+            order.setDate(LocalDateTime.now());
+            order.setAddress(profile.getAddress());
+            order.setCity(profile.getCity());
+            order.setState(profile.getState());
+            order.setZip(profile.getZip());
+            order.setShippingAmount(calculateShipping(cart));
+
+            // 4. Save order to get generated ID
+            Order createdOrder = orderDao.create(order);
+
+            // 5. Convert cart items to order line items
+            for (ShoppingCartItem cartItem : cart.getItems().values()) {
+                Product product = productDao.getById(cartItem.getProductId());
+
+                OrderLineItem lineItem = new OrderLineItem();
+                lineItem.setOrderId(createdOrder.getOrderId());
+                lineItem.setProductId(product.getProductId());
+                lineItem.setQuantity(cartItem.getQuantity());
+                lineItem.setSalesPrice(product.getPrice());
+                lineItem.setDiscount(BigDecimal.ZERO);
+
+                orderLineItemDao.create(lineItem);
+            }
+
+            // 6. Clear shopping cart
+            shoppingCartDao.clearCart(user.getId());
+
+            // 7. Return complete order with line items
+            return orderDao.getById(createdOrder.getOrderId());
+
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR,
+                    "Error during checkout: " + e.getMessage(), e);
+        }
+    }
+```
+<div align="center">
+  
+<h2>📜 License</h2><br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
