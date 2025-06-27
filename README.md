@@ -3,25 +3,55 @@
 <h3 align="center">
 Enhanced E-Commerce Platform | Spring Boot Backend + Vanilla JS Frontend
 </h3>
+
 <p align="center">
 A capstone project where we transformed an incomplete/buggy prebuilt system into a fully functional e-commerce solution. We fixed broken product search and filtering, then built a complete shopping cart system with persistent storage and checkout functionality. The enhanced platform now supports secure user authentication, real-time shopping cart management, and frontend-backend integration through REST APIs.<br><br>Working with the existing Java/Spring Boot backend, critical issues were debugged while adding essential e-commerce features. The revamped system delivers reliable product browsing, cart operations, and order processing.
 </p>
 
 <div align="center">
+<h2>
+Project Context:
+</h2>
 
-## ✨ Features
+<strong>This project began with a prebuilt but incomplete Spring Boot backend containing:</strong>
 
-<p style="text-align: center; margin-left: 0; padding-left: 0">
-• <strong>Product Catalog</strong> with categories and advanced search<br>
-• <strong>JWT Authentication</strong> (Customer/Admin roles)<br>
-• <strong>Shopping Cart</strong> with persistent storage<br>
-• <strong>Admin Dashboard</strong> for inventory management<br>
-• <strong>Responsive Design</strong> with mobile-first approach<br>
-• <strong>RESTful API</strong> with proper status codes
+<p>
+• A functional but buggy product search system<br>
+• Partial user authentication flow<br>
+• No shopping cart implementation<br>
+• No order processing system<br>
+• A separate vanilla JavaScript frontend requiring backend integration<br>
+</p>
+
+<strong>Students were tasked with:</strong>
+
+<p>
+• <strong>Debugging:</strong> critical issues with the existing codebase<br>
+• <strong>Implementing</strong> missing features per business requirements<br>
+• <strong>Connecting</strong> everything to the prebuilt frontend<br>
 </p>
 
 </div>
 
+<div align="center">
+
+## ✨ Key Features
+
+**The enhanced system now includes:**
+
+• **User Authentication** - Secure JWT login/registration flow  
+• **Product Catalog** - Fixed search with category/price filters  
+• **Shopping Cart** - Full CRUD operations with database persistence  
+• **Order Processing** - Checkout system converting carts to orders  
+
+**Critical technical improvements:**  
+
+• Fixed broken product search functionality  
+• Implemented missing cart/order APIs from scratch  
+• Secured authentication vulnerabilities  
+• Added proper input validation/error handling  
+
+</div>
 <div align="center">
 
 ## 🛠️ Tech Stack
