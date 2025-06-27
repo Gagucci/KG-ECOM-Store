@@ -121,7 +121,7 @@ Project Context
 
 
 <h2 align="center">  
-🔍 Code Snippet
+🔍 Interesting Code Snippet
 </h2>
 
 ```java
@@ -178,6 +178,20 @@ Project Context
         }
     }
 ```
+
+<div align="center">
+<h3>Checkout Endpoint</h3>
+<p>This Java Spring Boot controller method handles the complete checkout process:</p>
+
+<p>
+• Converts shopping cart items to permanent orders<br>
+• Applies user profile shipping details<br>
+• Calculates shipping costs<br>
+• Clears cart upon successful order creation<br>
+• Returns complete order confirmation
+</p>
+</div>
+
 <div align="center">
   
 <h2>📜 License:</h2><br>
