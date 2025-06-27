@@ -89,7 +89,9 @@ Project Context
 
 <div align="center">
 
-## 🚀 Getting Started
+
+
+## 🚀 Installation
 
 ### Prerequisites:
 
@@ -100,8 +102,6 @@ Project Context
 • <strong>Maven</strong> 3.9+<br>
 • <strong>MySQL</strong> 8.0+
 </p>
-
-## 🚀 Installation
 
 ### **1.**
 <strong>Clone the repository</strong>:<br>
