@@ -1,6 +1,11 @@
 <h1 align="center">🛍️ KG E-Commerce Store</h1>
 
-<p align="center">A full-stack e-commerce platform with Spring Boot backend and React frontend,<br>featuring product management, user authentication, and secure checkout.</p>
+<h3 align="center">
+Enhanced E-Commerce Platform | Spring Boot Backend + Vanilla JS Frontend
+</h3>
+<p align="center">
+A capstone project where we transformed an incomplete/buggy prebuilt system into a fully functional e-commerce solution. We fixed broken product search and filtering, then built a complete shopping cart system with persistent storage and checkout functionality. The enhanced platform now supports secure user authentication, real-time shopping cart management, and frontend-backend integration through REST APIs.<br><br>Working with the existing Java/Spring Boot backend, critical issues were debugged while adding essential e-commerce features. The revamped system delivers reliable product browsing, cart operations, and order processing.
+</p>
 
 <div align="center">
 
