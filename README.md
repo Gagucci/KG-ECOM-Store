@@ -67,7 +67,7 @@ Project Context
 
 ## 🛠️ Tech Stack
 
-### **Frontend**  
+### **Frontend:**  
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)  
@@ -76,7 +76,7 @@ Project Context
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)  
 [![Mustache](https://img.shields.io/badge/Mustache-000000?style=for-the-badge&logo=mustache&logoColor=white)](https://github.com/janl/mustache.js)
 
-### **Backend**  
+### **Backend:**  
 [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://java.com)
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)](https://www.json.org)  
@@ -91,7 +91,7 @@ Project Context
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Prerequisites:
 
 <p style="text-align: center; margin-left: 0; padding-left: 0">
 • <strong>IntelliJ</strong> IDEA (Community or Ultimate Edition)<br>
@@ -180,7 +180,7 @@ Project Context
 ```
 <div align="center">
   
-<h2>📜 License</h2><br>
+<h2>📜 License:</h2><br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
