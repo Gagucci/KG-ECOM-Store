@@ -24,6 +24,7 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
     public Order create(Order order) {
         String sql = "INSERT INTO orders (user_id, date, address, city, state, zip, shipping_amount) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
         try (var connection = getConnection();
                 var ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 

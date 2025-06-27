@@ -33,6 +33,11 @@ public class ShoppingCart
         return items.get(productId);
     }
 
+    /*
+     * Removes the item with the specified productId from the shopping cart.
+     *
+     * @param productId The ID of the product to remove.
+     */
     public BigDecimal getTotal()
     {
         BigDecimal total = items.values()

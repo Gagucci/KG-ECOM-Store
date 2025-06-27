@@ -40,6 +40,10 @@ public class OrderLineItem {
     public BigDecimal getDiscount() { return discount; }
     public void setDiscount(BigDecimal discount) { this.discount = discount; }
 
+    /* Calculates the total price for this line item, taking into account the sales price,
+     * quantity, and any applicable discount.
+     * @return The total price for this line item.
+     */
     public BigDecimal getLineTotal() {
         BigDecimal itemTotal = salesPrice.multiply(BigDecimal.valueOf(quantity));
         return itemTotal.subtract(discount != null ? discount : BigDecimal.ZERO);

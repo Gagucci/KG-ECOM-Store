@@ -36,11 +36,16 @@ public class ShoppingCartController {
     }
 
     // each method in this controller requires a Principal object as a parameter
+    // principal.getName() will return the username of the logged in user
     @GetMapping("")
     public ShoppingCart getCart(Principal principal) {
         try {
+
+            // Get the current user's username from the Principal object
             String userName = principal.getName();
+            // Retrieve the user by username
             User currentUser = userDao.getByUserName(userName);
+            // get the shopping cart for the current user
             ShoppingCart cart = shoppingCartDao.getByUserId(currentUser.getId());
 
             if (cart == null) {

@@ -109,6 +109,7 @@ public class Order {
         this.lineItems.add(lineItem);
     }
 
+    // Calculates the total amount for the order, including line items and shipping
     public BigDecimal calculateTotal() {
         BigDecimal subtotal = lineItems.stream()
                 .map(OrderLineItem::getLineTotal)

@@ -24,9 +24,11 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
         List<Category> categories = new ArrayList<>();
         String sql = "SELECT * FROM categories";
 
+        // Use try-with-resources to ensure the connection and statement are closed properly
         try (Connection connection = getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet row = statement.executeQuery()) {
+            // Iterate through the result set and map each row to a Category object
             while (row.next()) {
                 Category category = mapRow(row);
                 categories.add(category);
@@ -121,6 +123,7 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
     }
 
     private Category mapRow(ResultSet row) throws SQLException {
+        // Map a ResultSet row to a Category object
         int categoryId = row.getInt("category_id");
         String name = row.getString("name");
         String description = row.getString("description");

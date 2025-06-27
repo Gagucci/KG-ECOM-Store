@@ -23,6 +23,10 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
         ShoppingCart cart = new ShoppingCart();
         cart.setItems(new HashMap<>());
 
+        // This SQL query retrieves all items in the shopping cart for a specific user.
+        // It joins the `shopping_cart` table with the `products` table to get product details.
+        // The query selects product details such as product ID, name, price, category ID, description, color,
+        // stock, image URL, and whether the product is featured, along with the quantity of each product in the cart.
         String sql = """
             SELECT
                 sc.product_id,
@@ -76,6 +80,10 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
 
     @Override
     public void addToCart(int userId, int productId, int quantity) {
+
+        // This SQL query uses a MERGE statement to either update or insert a record in the `shopping_cart` table.
+        // If a record with the same `user_id` and `product_id` exists, it updates the `quantity` by adding the new value.
+        // If no such record exists, it inserts a new row with the provided `user_id`, `product_id`, and `quantity`.
         String sql = """
                 MERGE INTO shopping_cart AS target
                     USING (SELECT CAST(? AS INT) AS user_id,
