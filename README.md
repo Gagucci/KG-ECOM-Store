@@ -10,7 +10,7 @@ A capstone project where we transformed an incomplete/buggy prebuilt system into
 
 <div align="center">
 <h2>
-Project Context:
+Project Context
 </h2>
 
 <strong>This project began with a prebuilt but incomplete Spring Boot backend containing:</strong>
@@ -34,6 +34,16 @@ Project Context:
 </div>
 
 <div align="center">
+<h2>📸 Screenshots</h2>
+
+<img src="./images/webpage.png" width="70%">
+<img src="./images/cart.png" width="70%">
+<img src="./images/profile.png" width="50%">
+<img src="./images/postman.png" width="50%">
+
+</div>
+
+<div align="center">
 
 ## ✨ Key Features
 
@@ -50,13 +60,14 @@ Project Context:
 • Implemented missing cart/order APIs from scratch  
 • Secured authentication vulnerabilities  
 • Added proper input validation/error handling  
-
 </div>
+
+
 <div align="center">
 
 ## 🛠️ Tech Stack
 
-### **Frontend**  
+### **Frontend:**  
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)  
@@ -65,7 +76,7 @@ Project Context:
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)  
 [![Mustache](https://img.shields.io/badge/Mustache-000000?style=for-the-badge&logo=mustache&logoColor=white)](https://github.com/janl/mustache.js)
 
-### **Backend**  
+### **Backend:**  
 [![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)](https://java.com)
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)](https://www.json.org)  
@@ -75,11 +86,14 @@ Project Context:
 
 </div>
 
+
 <div align="center">
 
-## 🚀 Getting Started
 
-### Prerequisites
+
+## 🚀 Installation
+
+### Prerequisites:
 
 <p style="text-align: center; margin-left: 0; padding-left: 0">
 • <strong>IntelliJ</strong> IDEA (Community or Ultimate Edition)<br>
@@ -88,8 +102,6 @@ Project Context:
 • <strong>Maven</strong> 3.9+<br>
 • <strong>MySQL</strong> 8.0+
 </p>
-
-## 🚀 Installation
 
 ### **1.**
 <strong>Clone the repository</strong>:<br>
@@ -107,18 +119,9 @@ Project Context:
 
 </div>
 
-<div align="center">
-  
-## 📸 Application Screens
-
-</div>
-
-<img src="https://via.placeholder.com/300x200/6DB33F/FFFFFF?text=Home+Screen" width="30%">
-<img src="https://via.placeholder.com/300x200/4479A1/FFFFFF?text=Product+Page" width="30%">
-<img src="https://via.placeholder.com/300x200/563D7C/FFFFFF?text=Admin+Dashboard" width="30%">
 
 <h2 align="center">  
-🔍 Code Snippet
+🔍 Interesting Code Snippet
 </h2>
 
 ```java
@@ -175,9 +178,23 @@ Project Context:
         }
     }
 ```
+
+<div align="center">
+<h3>Checkout Endpoint</h3>
+<p>This Java Spring Boot controller method handles the complete checkout process:</p>
+
+<p>
+• Converts shopping cart items to permanent orders<br>
+• Applies user profile shipping details<br>
+• Calculates shipping costs<br>
+• Clears cart upon successful order creation<br>
+• Returns complete order confirmation
+</p>
+</div>
+
 <div align="center">
   
-<h2>📜 License</h2><br>
+<h2>📜 License:</h2><br>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
