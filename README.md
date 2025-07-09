@@ -26,7 +26,7 @@ Project Context
 <strong>Students were tasked with:</strong>
 
 <p>
-• <strong>Debugging:</strong> critical issues with the existing codebase<br>
+• <strong>Debugging</strong> critical issues with the existing codebase<br>
 • <strong>Implementing</strong> missing features per business requirements<br>
 • <strong>Connecting</strong> everything to the prebuilt frontend<br>
 </p>
